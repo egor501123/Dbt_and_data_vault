@@ -1,0 +1,9 @@
+version: 2
+models:
+  - name: raw_stage.raw_nametype
+    description: Таблица, в которой содержится вся информация о клиентах ( ФИО
+    columns:
+      - name: load_dttm
+        description: Дата загрузки
+
+

@@ -1,0 +1,35 @@
+
+
+version: 2
+models:
+  - name: raw_nametype
+    description: Таблица, в которой содержится вся личная информация о клиентак ( ФИО, страна и прочее )
+    columns:
+      - name: load_dttm
+        description: Дата загрузки
+      - name: birth_dt
+        description: Дата рождения
+      - name: birth_place_nm
+        description: Место рождения
+      - name: loanstypes_loan_hjid
+        description: Дата загрузки
+      - name: hjid
+        description: ID, создающийся при записи данных в Hadoop
+        tests:
+          - not_null
+      - name: nametypes_name__hjid
+        description: ID, для связи с таблицей singleformattype
+        tests:
+          - relationships:
+              to: ref('raw_sf_loanstype')
+              field: loanstypes_loan_hjid
+      - name: last_name
+        description: Отчество клиента
+      - name: middle_name
+        description: Фамилия клиента
+      - name: first_name
+        description: Имя клиента
+
+
+
+
